@@ -382,7 +382,7 @@ def validate_linkerd():
     here = os.path.dirname(os.path.abspath(__file__))
     manifest = os.path.join(here, "templates", "emojivoto.yaml")
     kubectl("apply -f {}".format(manifest))
-    wait_for_pod_state("", "emojivoto", "running", label="app=emoji-svc", timeout_insec=600)
+    wait_for_pod_state("", "default", "running", label="app=emoji-svc", timeout_insec=600)
     kubectl("delete -f {}".format(manifest))
 
 
